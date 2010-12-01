@@ -1,6 +1,10 @@
 #!/bin/bash
 #
+# add_header.sh
+#
 # Copyright 2010 Arturo Díaz-Almagro
+#
+# This file is part of License-Headers
 #
 # Permission to use, copy, modify, and distribute this software for any
 # purpose with or without fee is hereby granted, provided that the above
@@ -15,8 +19,7 @@
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #
 # You should have received a copy of the GNU General Public License
-# along with this project.  If not, see <http://www.gnu.org/licenses/>.
-
+# along with License-Headers.  If not, see <http://www.gnu.org/licenses/>.
 
 #
 # This script adds the GPLv3 header to all files within
@@ -27,15 +30,17 @@
 # Version: 1.0
 #
 
-if [ $# != 3 ]; 
+if [ $# != 4 ]; 
 then
-	echo "Usage: addLicenseHead <license_header_file> <directory> <file_extension>"
+	echo "Usage: $0 <license_header_file> <values_file> <directory> <file_extension>"
 	exit
 fi
 
 license_file=$1
-root_dir=$2
-file_exten=$3
+values_file=$2
+root_dir=$3
+file_exten=$4
+header_tmp=$license_file.tmp
 
 
 #find $root_dir -type f -print0 | xargs -0 -I file cat header.gpl file > file.new
@@ -44,6 +49,10 @@ IFS=$'\012'
 
 for file in `find $root_dir -type f -name "*.$file_exten" -print`; 
 do
-	cat "$license_file" "$file" > "$file.new" 
+	./config_header.sh "$file" "$license_file" "$values_file" > $header_tmp
+	cat "$header_tmp" "$file" > "$file.new" 
 	mv "$file.new" "$file"
 done
+
+rm $header_tmp
+exit

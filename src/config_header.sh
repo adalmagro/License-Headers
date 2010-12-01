@@ -40,6 +40,7 @@ fi
 . $3
 
 header_file=$2
+FILE_NAME=`basename $1`
 
-sed -e "s|{FILE_NAME}|$1|g" -e "s|{OWNER}|$OWNER|g" -e "s|{PROJECT_NAME}|$PROJECT_NAME|g" -e "s|{YEAR}|$YEAR|g" $header_file
+sed -e "s|{FILE_NAME}|$FILE_NAME|g" -e "s|{OWNER}|$OWNER|g" -e "s|{PROJECT_NAME}|$PROJECT_NAME|g" -e "s|{YEAR}|$YEAR|g" $header_file
 exit
