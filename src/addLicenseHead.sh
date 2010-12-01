@@ -42,7 +42,7 @@ file_exten=$3
 
 IFS=$'\012'
 
-for file in $root_dir/*.$file_exten; 
+for file in `find $root_dir -type f -name "*.$file_exten" -print`; 
 do
 	cat "$license_file" "$file" > "$file.new" 
 	mv "$file.new" "$file"
