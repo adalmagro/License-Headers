@@ -1,9 +1,9 @@
 /**
- * ${file_name}
+ * {FILE_NAME}
  *
- * Copyright ${year} ${owner}
+ * Copyright {YEAR} {OWNER}
  *
- * This file is part of ${project_name}
+ * This file is part of {PROJECT_NAME}
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -18,7 +18,7 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *
  * You should have received a copy of the GNU General Public License
- * along with ${project_name}.  If not, see <http://www.gnu.org/licenses/>.
+ * along with {PROJECT_NAME}.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
